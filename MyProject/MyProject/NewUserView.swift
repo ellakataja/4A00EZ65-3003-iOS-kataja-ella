@@ -54,18 +54,17 @@ func addUser(firstName : String?, lastName : String?) {
         ]
         
     AF.request("https://dummyjson.com/users/add", method:
-        .post, parameters: params, encoding: JSONEncoding.default)
-        .response { response in print(response)
-        let data = response.data
+    .post, parameters: params, encoding: JSONEncoding.default)
+    .response { response in print(response)
+    let data = response.data
         
-        let decoder = JSONDecoder()
+    let decoder = JSONDecoder()
         do {
             let user : User = try decoder.decode(User.self,
-                from: data!)
+            from: data!)
             print(user)
-            
         } catch {
             print("Failed to decode JSON: \(error.localizedDescription)")
         }
-        }
+    }
 }
