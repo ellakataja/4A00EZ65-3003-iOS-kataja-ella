@@ -24,7 +24,7 @@ struct ContentView: View {
     @State private var lastName : String = ""
     @State private var searchText = ""
     @State private var isDeleted : Bool = false
-
+    
     var body: some View {
         NavigationView {
             NavigationStack {
@@ -33,20 +33,26 @@ struct ContentView: View {
                         HStack {
                             Text("\(user.firstName) \(user.lastName)")
                             Spacer()
+                                NavigationLink(destination: UpdateUserView(user: user)) {
+                                    Image(systemName: "square.and.pencil")
+                                }
+                                .frame(width: 43, height: 35)
+                                .foregroundColor(.white)
+                                .background(.yellow)
+                                .buttonStyle(.bordered)
+                                .cornerRadius(10)
+
                             Button(action: {
                                 delete(id : user.id)
                                 isDeleted = true
                             }) {
-                                Label("Delete", systemImage: "trash")
+                                Image(systemName: "trash")
                             }
                             .foregroundColor(.white)
                             .background(.red)
                             .buttonStyle(.bordered)
                             .cornerRadius(10)
-                            .alert(isPresented: $isDeleted) {
-                                Alert(title: Text("User deleted"),
-                                dismissButton: .default(Text("Okay")))
-                            }
+                            
                         }
                     }
                 }
@@ -59,8 +65,12 @@ struct ContentView: View {
                     }
                 }
                 NavigationLink(destination: NewUserView()) {
+                    Image(systemName: "person.badge.plus")
                     Text("Add new user")
                 }
+                .frame(width: 400, height: 40)
+                .foregroundColor(.white)
+                .background(.green)
                 .navigationTitle("All users")
                 //.padding()
                 .onAppear {
@@ -70,6 +80,9 @@ struct ContentView: View {
                 }
             }
         }
+        .alert(isPresented: $isDeleted) {
+            Alert(title: Text("User deleted"),
+            dismissButton: .default(Text("Okay")))
+        }
     }
 }
-    

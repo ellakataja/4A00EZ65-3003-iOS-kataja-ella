@@ -16,6 +16,7 @@
 		18BDEDA72A0CF30000620EAC /* GetHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDEDA62A0CF30000620EAC /* GetHttp.swift */; };
 		18BDEDA92A0CF61E00620EAC /* SearchUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDEDA82A0CF61E00620EAC /* SearchUsers.swift */; };
 		18BDEDAB2A0CFB5400620EAC /* DeleteUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BDEDAA2A0CFB5400620EAC /* DeleteUser.swift */; };
+		18EEABE32A17697900C4E332 /* UpdateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEABE22A17697900C4E332 /* UpdateUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		18BDEDA62A0CF30000620EAC /* GetHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHttp.swift; sourceTree = "<group>"; };
 		18BDEDA82A0CF61E00620EAC /* SearchUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUsers.swift; sourceTree = "<group>"; };
 		18BDEDAA2A0CFB5400620EAC /* DeleteUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUser.swift; sourceTree = "<group>"; };
+		18EEABE22A17697900C4E332 /* UpdateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				18BDEDA62A0CF30000620EAC /* GetHttp.swift */,
 				18BDEDA82A0CF61E00620EAC /* SearchUsers.swift */,
 				18BDEDAA2A0CFB5400620EAC /* DeleteUser.swift */,
+				18EEABE22A17697900C4E332 /* UpdateUserView.swift */,
 				1875F3712A0A315400249537 /* Assets.xcassets */,
 				1875F3732A0A315400249537 /* Preview Content */,
 			);
@@ -160,6 +163,7 @@
 				18BDEDA72A0CF30000620EAC /* GetHttp.swift in Sources */,
 				1875F3702A0A315200249537 /* ContentView.swift in Sources */,
 				1875F37F2A0A56DC00249537 /* NewUserView.swift in Sources */,
+				18EEABE32A17697900C4E332 /* UpdateUserView.swift in Sources */,
 				18BDEDAB2A0CFB5400620EAC /* DeleteUser.swift in Sources */,
 				1875F36E2A0A315200249537 /* MyProjectApp.swift in Sources */,
 				18BDEDA92A0CF61E00620EAC /* SearchUsers.swift in Sources */,

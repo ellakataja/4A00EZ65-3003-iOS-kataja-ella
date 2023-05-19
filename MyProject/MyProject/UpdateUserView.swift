@@ -1,20 +1,21 @@
 //
-//  NewUserView.swift
+//  UpdateUserView.swift
 //  MyProject
 //
-//  Created by Ella Kataja on 9.5.2023.
+//  Created by Ella Kataja on 19.5.2023.
 //
 
 import Foundation
 import SwiftUI
 import Alamofire
 
-struct NewUserView: View {
+struct UpdateUserView: View {
+    let user: User
     @State var users: [User] = []
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var nameLengthBoolean : Bool = false
-    @State private var isAdded : Bool = false
+    @State private var isEdited : Bool = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -29,6 +30,9 @@ struct NewUserView: View {
                     Rectangle()
                     .stroke(Color.gray)
                     .background(.gray.opacity(0.2)))
+                .onAppear {
+                    firstName = user.firstName
+                }
                 TextField(
                     "Last name",
                     text: $lastName
@@ -38,10 +42,19 @@ struct NewUserView: View {
                     Rectangle()
                     .stroke(Color.gray)
                     .background(.gray.opacity(0.2)))
-                Button("Add user") {
+                .onAppear {
+                    lastName = user.lastName
+                }
+                
+                Button("Update user") {
                     if firstName.count > 1 && lastName.count > 1 {
-                        addUser(firstName: firstName, lastName: lastName)
-                        isAdded = true
+                        let updatedUser = User(
+                        id: user.id,
+                        firstName: firstName,
+                        lastName: lastName
+                        )
+                        updateUser(user : updatedUser)
+                        isEdited = true
                     } else {
                         nameLengthBoolean = true
                     }
@@ -50,8 +63,8 @@ struct NewUserView: View {
                 .background(.green)
                 .buttonStyle(.bordered)
                 .cornerRadius(10)
-                .alert(isPresented: $isAdded) {
-                    Alert(title: Text("User added"),
+                .alert(isPresented: $isEdited) {
+                    Alert(title: Text("User updated"),
                           dismissButton: .default(Text("Okay")) {
                         self.presentationMode.wrappedValue.dismiss()
                     })
@@ -62,30 +75,31 @@ struct NewUserView: View {
                     }
                 }
             }
-            .navigationTitle("Create new user")
+            .navigationTitle("User \(firstName) \(lastName)")
             .padding()
         }
     }
 }
 
-func addUser(firstName : String?, lastName : String?) {
-    let params: Parameters = [
-            "firstName": firstName!,
-            "lastName": lastName!
-        ]
+private func updateUser(user: User) {
+    let id : Int = user.id
+    let url : URL = URL(string : "https://dummyjson.com/users/\(id)")!
+    let parameters = [
+        "firstName": user.firstName,
+        "lastName": user.lastName
+    ]
+    
+    AF.request(url, method: .put, parameters: parameters).response {
+        response in print(response)
+        let data = response.data
         
-    AF.request("https://dummyjson.com/users/add", method:
-    .post, parameters: params, encoding: JSONEncoding.default)
-    .response { response in print(response)
-    let data = response.data
-        
-    let decoder = JSONDecoder()
+        let decoder = JSONDecoder()
         do {
             let user : User = try decoder.decode(User.self,
             from: data!)
             print(user)
         } catch {
-            print("Failed to decode JSON: \(error.localizedDescription)")
+            print("Failed to decode JSON \(error.localizedDescription)")
         }
     }
 }
