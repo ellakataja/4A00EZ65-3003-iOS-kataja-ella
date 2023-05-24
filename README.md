@@ -7,6 +7,8 @@ the main app, with five mandatory features.
 Alamofire
 ### JSON Parser
 JSONDecoder
+### UI
+SwiftUI
 # Features
 - Get all users
 - Search users
