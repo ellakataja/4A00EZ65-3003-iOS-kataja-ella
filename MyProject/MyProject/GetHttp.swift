@@ -11,7 +11,8 @@ import Alamofire
 /// A function that gets http connection to the server
 /// and gets all the users from there.
 /// - Parameters:
-///    - callback: A callback parameter that is used after a succesfull connection.
+///    - callback: A callback parameter that is used after
+///    a succesfull connection.
 func getHttpConnection(callback : @escaping (UsersList) -> Void) {
     
     /// The url as a String variable

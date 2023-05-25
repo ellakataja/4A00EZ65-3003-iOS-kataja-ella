@@ -12,7 +12,7 @@ import Alamofire
 /// A struct of the UpdateUserView
 struct UpdateUserView: View {
     /// Variable of a single user that is edited
-    let user : User
+    let 👤 : User
     /// Variable of the user's first name
     @State private var firstName : String = ""
     /// Variable of the user's last name
@@ -46,7 +46,7 @@ struct UpdateUserView: View {
                     /// Previous first name is inside the input field
                     /// by default
                     .onAppear {
-                        firstName = user.firstName
+                        firstName = 👤.firstName
                     }
                 }
                 .padding(5)
@@ -66,7 +66,7 @@ struct UpdateUserView: View {
                     /// Previous last name is inside the input field
                     /// by default
                     .onAppear {
-                        lastName = user.lastName
+                        lastName = 👤.lastName
                     }
                 }
                 .padding(5)
@@ -86,17 +86,18 @@ struct UpdateUserView: View {
                     /// Previous email is inside the input field
                     /// by default
                     .onAppear {
-                        email = user.email
+                        email = 👤.email
                     }
                 }
                 .padding(5)
                 /// Button that updates the user's data
                 Button("Update user") {
-                    /// If both names are two or more characters the user is updated
+                    /// If both names are two or more characters
+                    /// the user is updated
                     if firstName.count > 1 && lastName.count > 1 {
                         /// Variable of the updated user's new data
                         let updatedUser = User(
-                        id: user.id,
+                        id: 👤.id,
                         firstName: firstName,
                         lastName: lastName,
                         email: email

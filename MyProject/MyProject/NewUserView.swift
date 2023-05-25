@@ -80,7 +80,8 @@ struct NewUserView: View {
                         /// If both names are two or more character long
                         /// button calls addUser function and passes
                         /// the input values to it
-                        addUser(firstName: firstName, lastName: lastName, email: email)
+                        addUser(firstName: firstName, lastName: lastName,
+                                email: email)
                         /// Pop-up of succession is shown to user
                         isAdded = true
                     } else {

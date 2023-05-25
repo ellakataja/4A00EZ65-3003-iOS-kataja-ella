@@ -56,7 +56,7 @@ struct ContentView: View {
                             /// NavigationLink that moves to UpdateUserView and
                             /// passes the chosen user with it
                                 NavigationLink(destination:
-                                UpdateUserView(user: user)) {
+                                UpdateUserView(👤: user)) {
                                     Image(systemName: "square.and.pencil")
                                         .padding(10)
                                 }
