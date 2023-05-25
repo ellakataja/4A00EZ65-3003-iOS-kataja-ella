@@ -16,7 +16,7 @@ func delete(id : Int) {
     let url : String = "https://dummyjson.com/users/\(id)"
     
     /// Using Alamofire HTTP request to get connection
-    AF.request(url).response {
+    AF.request(url, method: .delete).response {
         /// Prints the response to indicate success or failure
         response in print(response)
         /// Saving the response's data in a variable
